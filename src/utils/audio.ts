@@ -43,7 +43,7 @@ class MandarinAudioEngine {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'zh-CN';
       utterance.volume = 1.0; // Volume máximo
-      utterance.rate = rate;  // 1.0 ou 0.65
+      utterance.rate = rate * 0.75;
       utterance.pitch = 1.0;
 
       if (!this.selectedVoice) {
