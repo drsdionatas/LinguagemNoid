@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hanzi: "Noto Serif SC", "Noto Sans SC", serif;
+  --font-sans-sc: "Noto Sans SC", "Noto Sans", sans-serif;
+  --font-pinyin: "Noto Sans", system-ui, sans-serif;
+  --font-sans: "Noto Sans", "Noto Sans SC", system-ui, sans-serif;
+}
+
+html,
+body {
+  background: #000;
+  color: #fff;
+  overscroll-behavior-y: none;
+}
+
+.safe-area {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.btn-amoled-touch {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 100ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.btn-amoled-touch:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-amoled-touch:disabled {
+  cursor: default;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respeita "Remover animações" do Android: menos trabalho de GPU = menos bateria */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
